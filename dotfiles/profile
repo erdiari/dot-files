@@ -124,3 +124,12 @@ ex ()
 alias btrfsfs="sudo btrfs filesystem df /"
 alias btrfsli="sudo btrfs su li / -t"
 
+### Dot Drop ###
+# For more information: https://dotdrop.readthedocs.io/en/latest/
+
+# Folder where repo is cloned.
+#export DOTREPO="| -_- | -> This be empty. Fixit"
+
+#alias dotdrop="$DOTREPO/dotdrop.sh"
+#alias dotgit="git -C $DOTREPO"
+#alias dotsync="dotgit pull && dotgit add -A && dotgit commit && dotgit push; dotdrop install"
