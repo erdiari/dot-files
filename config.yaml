@@ -1,0 +1,32 @@
+config:
+  backup: true
+  create: true
+  dotpath: dotfiles
+dotfiles:
+  f_profile:
+    src: profile
+    dst: ~/.profile
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+  f_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
+  f_xinitrc:
+    src: xinitrc
+    dst: ~/.xinitrc
+  f_packages.el:
+    src: config/doom/packages.el
+    dst: ~/.config/doom/packages.el
+profiles:
+  Home:
+    dotfiles:
+    - f_profile
+    - f_zshrc
+    - f_bashrc
+    - d_nvim
+    - f_xinitrc
+    - f_packages.el

@@ -1,0 +1,21 @@
+source /home/erd/.profile
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
+
+PS1='[\u@\h \W]\$ '
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+#shopt
+shopt -s autocd # change to named directory
+shopt -s cdspell # autocorrects cd misspellings
+shopt -s cmdhist # save multi-line commands in history as single line
+shopt -s dotglob
+shopt -s histappend # do not overwrite history
+shopt -s expand_aliases # expand aliases
+
+#ignore upper and lowercase when TAB completion
+bind "set completion-ignore-case on"
+
+
+eval "$(starship init bash)"

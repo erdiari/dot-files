@@ -1,0 +1,62 @@
+# Read profile file which include alises etc.
+source /home/erd/.profile
+
+#Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+
+export PAGER='less'
+
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+setopt GLOB_DOTS
+#share commands between terminal instances or not
+#unsetopt SHARE_HISTORY
+setopt SHARE_HISTORY
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# PS1='[\u@\h \W]\$ '
+
+export HISTCONTROL=ignoreboth:erasedups
+
+
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+
+
+####   STARSHIP  #####
+eval "$(starship init zsh)"
+eval $(thefuck --alias)
+#
+HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# export LANG=en_US.UTF-8
+
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+
+#### Antigen ####
+source ~/.config/antigen/antigen.zsh
+
+antigen bundle jeffreytse/zsh-vi-mode
+antigen apply
+
